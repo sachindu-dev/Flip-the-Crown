@@ -1,32 +1,26 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://bggaahwull3b0"]
 
-[ext_resource type="TileSet" path="res://tilesets/terrain.tres" id="1_lbu4x"]
+[ext_resource type="TileSet" uid="uid://b6gj1rrygoki7" path="res://tilesets/terrain.tres" id="1_lbu4x"]
 [ext_resource type="PackedScene" path="res://entities/Diamond.tscn" id="2_vcl05"]
-[ext_resource type="Script" path="res://scripts/Pickup.gd" id="3_nn0v1"]
 [ext_resource type="PackedScene" path="res://entities/Fruit.tscn" id="4_kdcll"]
 [ext_resource type="PackedScene" path="res://entities/Box.tscn" id="5_j4pg1"]
 [ext_resource type="PackedScene" path="res://entities/Pig.tscn" id="6_nu2w0"]
-[ext_resource type="Script" path="res://scripts/Pig.gd" id="7_rv5to"]
 [ext_resource type="PackedScene" path="res://entities/Door.tscn" id="8_j4mar"]
-[ext_resource type="Script" path="res://scripts/DoorEnt.gd" id="9_1bxb8"]
 
 [node name="Level1" type="Node2D" unique_id=1543546322]
 
 [node name="Terrain" type="TileMapLayer" parent="." unique_id=659662873]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAIAAkAAAABAAAAAAAJAAkAAAABAAAAAAAKAAkAAAABAAAAAAAUAAsAAAABAAAAAAAVAAsAAAABAAAAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAZAAsAAAABAAAAAAAaAAsAAAABAAAAAAAbAAsAAAABAAAAAAAcAAsAAAABAAAAAAAdAAsAAAABAAAAAAAAAA4AAAABAAAAAAABAA4AAAABAAAAAAACAA4AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAHAA4AAAABAAAAAAAIAA4AAAABAAAAAAAJAA4AAAABAAAAAAAKAA4AAAABAAAAAAALAA4AAAABAAAAAAAMAA4AAAABAAAAAAANAA4AAAABAAAAAAAOAA4AAAABAAAAAAAPAA4AAAABAAAAAAAQAA4AAAABAAAAAAARAA4AAAABAAAAAAASAA4AAAABAAAAAAATAA4AAAABAAAAAAAUAA4AAAABAAAAAAAVAA4AAAABAAAAAAAWAA4AAAABAAAAAAAXAA4AAAABAAAAAAAYAA4AAAABAAAAAAAZAA4AAAABAAAAAAAaAA4AAAABAAAAAAAbAA4AAAABAAAAAAAcAA4AAAABAAAAAAAdAA4AAAABAAAAAAAAAA8AAAABAAEAAAABAA8AAAABAAEAAAACAA8AAAABAAEAAAADAA8AAAABAAEAAAAEAA8AAAABAAEAAAAFAA8AAAABAAEAAAAGAA8AAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAALAA8AAAABAAEAAAAMAA8AAAABAAEAAAANAA8AAAABAAEAAAAOAA8AAAABAAEAAAAPAA8AAAABAAEAAAAQAA8AAAABAAEAAAARAA8AAAABAAEAAAASAA8AAAABAAEAAAATAA8AAAABAAEAAAAUAA8AAAABAAEAAAAVAA8AAAABAAEAAAAWAA8AAAABAAEAAAAXAA8AAAABAAEAAAAYAA8AAAABAAEAAAAZAA8AAAABAAEAAAAaAA8AAAABAAEAAAAbAA8AAAABAAEAAAAcAA8AAAABAAEAAAAdAA8AAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAUAAsAAAABAAAAAAAVAAsAAAABAAAAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAZAAsAAAABAAAAAAAaAAsAAAABAAAAAAAbAAsAAAABAAAAAAAcAAsAAAABAAAAAAAdAAsAAAABAAAAAAAAAA4AAAABAAAAAAABAA4AAAABAAAAAAACAA4AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAHAA4AAAABAAAAAAAIAA4AAAABAAAAAAAJAA4AAAABAAAAAAAKAA4AAAABAAAAAAALAA4AAAABAAAAAAAMAA4AAAABAAAAAAANAA4AAAABAAAAAAAOAA4AAAABAAAAAAAPAA4AAAABAAAAAAAQAA4AAAABAAAAAAARAA4AAAABAAAAAAASAA4AAAABAAAAAAATAA4AAAABAAAAAAAUAA4AAAABAAAAAAAVAA4AAAABAAAAAAAWAA4AAAABAAAAAAAXAA4AAAABAAAAAAAYAA4AAAABAAAAAAAZAA4AAAABAAAAAAAaAA4AAAABAAAAAAAbAA4AAAABAAAAAAAcAA4AAAABAAAAAAAdAA4AAAABAAAAAAAAAA8AAAABAAEAAAABAA8AAAABAAEAAAACAA8AAAABAAEAAAADAA8AAAABAAEAAAAEAA8AAAABAAEAAAAFAA8AAAABAAEAAAAGAA8AAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAALAA8AAAABAAEAAAAMAA8AAAABAAEAAAANAA8AAAABAAEAAAAOAA8AAAABAAEAAAAPAA8AAAABAAEAAAAQAA8AAAABAAEAAAARAA8AAAABAAEAAAASAA8AAAABAAEAAAATAA8AAAABAAEAAAAUAA8AAAABAAEAAAAVAA8AAAABAAEAAAAWAA8AAAABAAEAAAAXAA8AAAABAAEAAAAYAA8AAAABAAEAAAAZAA8AAAABAAEAAAAaAA8AAAABAAEAAAAbAA8AAAABAAEAAAAcAA8AAAABAAEAAAAdAA8AAAABAAEAAAAHAAwAAAABAAAAAAAIAAwAAAABAAAAAAAJAAwAAAABAAAAAAA=")
 tile_set = ExtResource("1_lbu4x")
 
-[node name="Diamond" type="Node2D" parent="." unique_id=664452050 groups=["diamond"] instance=ExtResource("2_vcl05")]
-position = Vector2(288, 256)
-script = ExtResource("3_nn0v1")
-kind = "diamond"
+[node name="Diamond" parent="." unique_id=664452050 instance=ExtResource("2_vcl05")]
+position = Vector2(265, 353)
 
-[node name="Fruit" type="Node2D" parent="." unique_id=492649051 groups=["fruit"] instance=ExtResource("4_kdcll")]
-position = Vector2(128, 352)
-script = ExtResource("3_nn0v1")
+[node name="Fruit" parent="." unique_id=492649051 instance=ExtResource("4_kdcll")]
+position = Vector2(495, 414)
 
-[node name="Box" type="Node2D" parent="." unique_id=666908763 groups=["box"] instance=ExtResource("5_j4pg1")]
+[node name="Box" parent="." unique_id=666908763 instance=ExtResource("5_j4pg1")]
 position = Vector2(640, 384)
 
 [node name="KingSpawn" type="Marker2D" parent="." unique_id=1265318815]
@@ -35,18 +29,14 @@ position = Vector2(64, 416)
 [node name="FrogSpawn" type="Marker2D" parent="." unique_id=384145343]
 position = Vector2(128, 416)
 
-[node name="Pig" type="Node2D" parent="." unique_id=66513825 groups=["pig"] instance=ExtResource("6_nu2w0")]
+[node name="Pig" parent="." unique_id=66513825 instance=ExtResource("6_nu2w0")]
 position = Vector2(322, 420)
-script = ExtResource("7_rv5to")
 
-[node name="@Node2D@2" type="Node2D" parent="." unique_id=390392702 groups=["box"] instance=ExtResource("5_j4pg1")]
+[node name="@Node2D@2" parent="." unique_id=390392702 instance=ExtResource("5_j4pg1")]
 position = Vector2(640, 416)
 
-[node name="@Node2D@3" type="Node2D" parent="." unique_id=848351682 groups=["diamond"] instance=ExtResource("2_vcl05")]
+[node name="@Node2D@3" parent="." unique_id=848351682 instance=ExtResource("2_vcl05")]
 position = Vector2(768, 416)
-script = ExtResource("3_nn0v1")
-kind = "diamond"
 
-[node name="Door" type="Node2D" parent="." unique_id=1780448333 groups=["door"] instance=ExtResource("8_j4mar")]
+[node name="Door" parent="." unique_id=1780448333 instance=ExtResource("8_j4mar")]
 position = Vector2(864, 416)
-script = ExtResource("9_1bxb8")
