@@ -6,23 +6,24 @@ extends Node2D
 
 const TILE := 32
 
-# --- tuned for "tight & snappy" (web values x2) ---
-const GRAVITY := 4000.0
-const MAX_FALL := 1120.0
-const JUMP_CUT := 0.45
-const COYOTE := 0.085
-const BUFFER := 0.11
+# Softer gravity than the doubled web values: jump heights are preserved
+# (h = v^2 / 2g) but airtime is ~25% longer so jumps feel less twitchy.
+const GRAVITY := 2600.0
+const MAX_FALL := 900.0
+const JUMP_CUT := 0.5
+const COYOTE := 0.1
+const BUFFER := 0.12
 
 const STATS := {
 	"king": {
 		"w": 26, "h": 44,
 		"max_run": 156.0, "accel": 1800.0, "friction": 2800.0, "air_accel": 1400.0,
-		"jump": 860.0, "jumps": 1, "wall": false,
+		"jump": 700.0, "jumps": 1, "wall": false,
 	},
 	"frog": {
 		"w": 24, "h": 34,
 		"max_run": 304.0, "accel": 3400.0, "friction": 4000.0, "air_accel": 2400.0,
-		"jump": 910.0, "jumps": 2, "wall": true,
+		"jump": 720.0, "jumps": 2, "wall": true,
 	},
 }
 

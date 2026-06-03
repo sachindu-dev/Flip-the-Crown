@@ -19,6 +19,7 @@ static func frames(specs: Array) -> SpriteFrames:
 			var at := AtlasTexture.new()
 			at.atlas = tex
 			at.region = Rect2(i * s.w, 0, s.w, s.h)
+			at.filter_clip = true  # stop sampling bleeding into neighbouring frames
 			sf.add_frame(anim, at)
 	return sf
 
@@ -27,4 +28,5 @@ static func first_frame(path: String, w: int, h: int) -> AtlasTexture:
 	var at := AtlasTexture.new()
 	at.atlas = load(path) as Texture2D
 	at.region = Rect2(0, 0, w, h)
+	at.filter_clip = true
 	return at

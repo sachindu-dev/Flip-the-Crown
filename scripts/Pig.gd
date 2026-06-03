@@ -4,8 +4,8 @@ extends Node2D
 # lethal on contact, dies to the King's hammer.
 
 const TILE := 32
-const GRAVITY := 4000.0
-const MAX_FALL := 1120.0
+const GRAVITY := 2600.0
+const MAX_FALL := 900.0
 
 const W := 28
 const H := 28
