@@ -7,7 +7,7 @@ const VW := 960
 const VH := 540
 
 # Per-level editable scenes; "" falls back to the text grid in Levels.gd.
-const LEVEL_SCENES := ["res://levels/Level1.tscn", "", ""]
+const LEVEL_SCENES := ["res://levels/Level1.tscn", "res://levels/Level2.tscn", "res://levels/Level3.tscn"]
 
 # state: "menu" | "play" | "pause" | "end"
 var state := "menu"
@@ -174,7 +174,15 @@ func _build_from_scene(packed: PackedScene, spawns: Dictionary) -> void:
 			spawns.fy = n.position.y - (Character.STATS.frog.h - TILE)
 
 # Build from the text grid (Levels.gd) — fallback for levels not yet converted.
-func _build_from_grid(grid: Array, spawns: Dictionary) -> void:
+func _build_from_grid(grid_in: Array, spawns: Dictionary) -> void:
+	# Pad rows to W so a grid row that lost trailing spaces can't crash.
+	var grid := []
+	for r in range(Levels.H):
+		var gr: String = grid_in[r] if r < grid_in.size() else ""
+		while gr.length() < Levels.W:
+			gr += " "
+		grid.append(gr)
+
 	for r in range(Levels.H):
 		terrain.append([])
 		boxmap.append([])

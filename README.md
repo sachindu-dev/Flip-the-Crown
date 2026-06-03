@@ -56,7 +56,7 @@ scripts/
   Pickup/SawEnt/DoorEnt.gd  # entity behaviours
   SheetUtil.gd         # slices sprite sheets into SpriteFrames
 entities/              # editable entity scenes (Pig, Diamond, Fruit, Box, Saw, Spike, Door)
-levels/Level1.tscn     # editable level scene (TileMapLayer + placed entities)
+levels/Level1-3.tscn   # editable level scenes (TileMapLayer + placed entities)
 tilesets/terrain.tres  # terrain TileSet for painting levels
 tools/build_level_scenes.gd  # regenerates the tileset + level scenes from Levels.gd
 assets/                # art (see credits)
@@ -66,13 +66,13 @@ The game uses a custom tile-grid physics engine (coyote time, jump buffering, va
 
 ### Editing levels visually
 
-`Game.gd` loads a level from `levels/LevelN.tscn` if it exists, otherwise from the text grid in `Levels.gd`. **Level 1 is a fully editable scene** — open `levels/Level1.tscn` in Godot and:
+`Game.gd` loads a level from `levels/LevelN.tscn` if it exists, otherwise from the text grid in `Levels.gd`. **All three levels are editable scenes** — open any `levels/LevelN.tscn` in Godot and:
 
 - **Paint terrain** on the `Terrain` TileMapLayer using the `tilesets/terrain.tres` palette (any painted cell is solid).
 - **Place entities** by dragging the scenes from `entities/` into the level and snapping them to the 32 px grid.
 - **Move the `KingSpawn` / `FrogSpawn`** markers to set where each character starts.
 
-The engine reads the TileMap cells as the collision grid and the placed nodes (by group) as entities. Levels 2–3 are still text grids; run `godot --headless --script res://tools/build_level_scenes.gd` to convert them the same way.
+The engine reads the TileMap cells as the collision grid and the placed nodes (by group) as entities. The text grids in `Levels.gd` are kept as a fallback and as the source for `tools/build_level_scenes.gd`, which regenerates the tileset and all level scenes (`godot --headless --script res://tools/build_level_scenes.gd`).
 
 ## 🎨 Credits
 

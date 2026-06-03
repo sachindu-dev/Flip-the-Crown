@@ -13,8 +13,9 @@ func _initialize() -> void:
 	DirAccess.make_dir_recursive_absolute("res://tilesets")
 	DirAccess.make_dir_recursive_absolute("res://levels")
 	_build_tileset()
-	_build_level(0, "res://levels/Level1.tscn")
-	print("DONE building tileset + Level1.tscn")
+	for i in range(Levels.DATA.size()):
+		_build_level(i, "res://levels/Level%d.tscn" % (i + 1))
+	print("DONE building tileset + %d level scenes" % Levels.DATA.size())
 	quit()
 
 func _build_tileset() -> void:
@@ -34,7 +35,7 @@ func _build_tileset() -> void:
 	print("tileset save: ", err, " (", cols, "x", rows, " tiles)")
 
 func _build_level(index: int, path: String) -> void:
-	var grid: Array = Levels.DATA[index].grid
+	var grid := _padded_grid(Levels.DATA[index].grid)
 	var root := Node2D.new()
 	root.name = "Level%d" % (index + 1)
 
@@ -93,6 +94,16 @@ func _add(root: Node2D, scene: PackedScene, x: int, y: int) -> void:
 	n.position = Vector2(x, y)
 	root.add_child(n)
 	n.owner = root
+
+# Pad rows to W (guards against a grid row that lost trailing spaces).
+func _padded_grid(grid: Array) -> Array:
+	var out := []
+	for r in range(Levels.H):
+		var row: String = grid[r] if r < grid.size() else ""
+		while row.length() < Levels.W:
+			row += " "
+		out.append(row)
+	return out
 
 func _add_marker(root: Node2D, mname: String, x: int, y: int) -> void:
 	var m := Marker2D.new()
