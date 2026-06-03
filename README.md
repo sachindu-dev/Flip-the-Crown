@@ -4,6 +4,8 @@ A tight, snappy single-screen **2D puzzle-platformer** built in **Godot 4**. Ins
 
 > Swap on the fly — the **King** smashes through boxes and pigs, the **Ninja Frog** double-jumps and wall-jumps to places the King can't reach. Two crowns, one path.
 
+https://github.com/user-attachments/assets/19710b17-ee0d-4236-8127-fbfd2ed8ca40
+
 ---
 
 ## 🎮 Controls
