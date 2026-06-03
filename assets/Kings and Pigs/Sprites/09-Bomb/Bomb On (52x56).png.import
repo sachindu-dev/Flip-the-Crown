@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://swpf8hu8fdvb"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://cp1m04hwe3cdk"
+path="res://.godot/imported/Bomb On (52x56).png-35ed47e5c3ce1239bea87ed62e8b6f0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/Kings and Pigs/Sprites/09-Bomb/Bomb On (52x56).png"
+dest_files=["res://.godot/imported/Bomb On (52x56).png-35ed47e5c3ce1239bea87ed62e8b6f0b.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

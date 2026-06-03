@@ -10,14 +10,21 @@ config_version=5
 
 [application]
 
-config/name="Flip the Crown"
+config/name="The Royal Swap"
+run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+
 [physics]
 
-3d/physics_engine="Jolt Physics"
+2d/default_gravity=4000
 
 [rendering]
 
-rendering_device/driver.windows="d3d12"
+textures/canvas_textures/default_texture_filter=0
