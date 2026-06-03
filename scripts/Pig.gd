@@ -24,6 +24,13 @@ var anim_t := 0.0
 var sprite: AnimatedSprite2D
 
 func _ready() -> void:
+	# When placed in a level scene the spawn is wherever the node sits.
+	if spawn_x == 0.0 and spawn_y == 0.0:
+		spawn_x = position.x
+		spawn_y = position.y
+	var icon := get_node_or_null("Icon")
+	if icon:
+		icon.queue_free()
 	sprite = AnimatedSprite2D.new()
 	sprite.centered = true
 	# feet (frame-y 25 of 28) aligned to hitbox bottom (H=28)

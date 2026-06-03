@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/Kings and Pigs/Sprites/08-Box/Idle.png" id="1"]
+
+[node name="Box" type="Node2D" groups=["box"]]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+centered = false
+scale = Vector2(1.4545, 2)
+texture = ExtResource("1")

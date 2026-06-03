@@ -6,10 +6,12 @@ const TILE := 32
 const VW := 960
 const VH := 540
 
+# Per-level editable scenes; "" falls back to the text grid in Levels.gd.
+const LEVEL_SCENES := ["res://levels/Level1.tscn", "", ""]
+
 # state: "menu" | "play" | "pause" | "end"
 var state := "menu"
 var level_index := 0
-var level: Dictionary
 
 var hearts := 3
 var fruit := 0
@@ -75,7 +77,6 @@ func _add_action(name: String, keys: Array) -> void:
 # ----------------------------------------------------------------- level load
 func load_level(i: int) -> void:
 	level_index = i
-	level = Levels.DATA[i]
 	for child in world.get_children():
 		child.queue_free()
 	fx.clear_all()
@@ -90,12 +91,90 @@ func load_level(i: int) -> void:
 	king = null
 	frog = null
 
-	var grid: Array = level.grid
-	var kx := float(TILE)
-	var ky := float(TILE)
-	var f_x := float(TILE * 2)
-	var f_y := float(TILE)
+	var spawns := {
+		"kx": float(TILE), "ky": float(TILE),
+		"fx": float(TILE * 2), "fy": float(TILE),
+	}
+	var scene_path: String = LEVEL_SCENES[i] if i < LEVEL_SCENES.size() else ""
+	if scene_path != "" and ResourceLoader.exists(scene_path):
+		_build_from_scene(load(scene_path), spawns)
+	else:
+		_build_from_grid(Levels.DATA[i].grid, spawns)
 
+	king = Character.new()
+	king.kind = "king"
+	king.spawn_x = spawns.kx
+	king.spawn_y = spawns.ky
+	world.add_child(king)
+	frog = Character.new()
+	frog.kind = "frog"
+	frog.spawn_x = spawns.fx
+	frog.spawn_y = spawns.fy
+	world.add_child(frog)
+
+	active_kind = "king"
+	king.set_active(true)
+	frog.set_active(false)
+
+	total_diamonds = diamond_list.size()
+	diamonds_collected = 0
+	fruit = 0
+	swap_cooldown = 0.0
+	freeze = 0.0
+
+	_sync_hud()
+	_update_swap_portrait()
+	_redraw_background()
+
+# Build from the editable scene: terrain from the TileMapLayer, entities from
+# the placed child nodes (tagged by group).
+func _build_from_scene(packed: PackedScene, spawns: Dictionary) -> void:
+	for r in range(Levels.H):
+		var tr := []
+		var br := []
+		for c in range(Levels.W):
+			tr.append(false)
+			br.append(null)
+		terrain.append(tr)
+		boxmap.append(br)
+
+	var inst: Node2D = packed.instantiate()
+	world.add_child(inst)
+
+	var tml := inst.get_node_or_null("Terrain") as TileMapLayer
+	if tml:
+		for cell in tml.get_used_cells():
+			if cell.x >= 0 and cell.x < Levels.W and cell.y >= 0 and cell.y < Levels.H:
+				terrain[cell.y][cell.x] = true
+
+	for n in inst.get_children():
+		if n.is_in_group("box"):
+			var bc := floori(n.position.x / TILE)
+			var br := floori(n.position.y / TILE)
+			if br >= 0 and br < Levels.H and bc >= 0 and bc < Levels.W:
+				boxmap[br][bc] = {"broken": false, "node": n}
+		elif n.is_in_group("spike"):
+			spikes.append({"x": n.position.x, "y": n.position.y})
+		elif n.is_in_group("saw"):
+			saws.append({"x": n.position.x, "y": n.position.y})
+		elif n.is_in_group("fruit"):
+			fruits.append({"x": n.position.x + TILE / 2.0, "y": n.position.y + TILE / 2.0, "got": false, "node": n, "base_y": n.position.y})
+		elif n.is_in_group("diamond"):
+			diamond_list.append({"x": n.position.x + TILE / 2.0, "y": n.position.y + TILE / 2.0, "got": false, "node": n, "base_y": n.position.y})
+		elif n.is_in_group("door"):
+			door = {"x": n.position.x, "y": n.position.y, "node": n, "opened": false}
+		elif n.is_in_group("pig"):
+			n.z_index = 2
+			pigs.append(n)
+		elif n.name == "KingSpawn":
+			spawns.kx = n.position.x
+			spawns.ky = n.position.y - (Character.STATS.king.h - TILE)
+		elif n.name == "FrogSpawn":
+			spawns.fx = n.position.x
+			spawns.fy = n.position.y - (Character.STATS.frog.h - TILE)
+
+# Build from the text grid (Levels.gd) — fallback for levels not yet converted.
+func _build_from_grid(grid: Array, spawns: Dictionary) -> void:
 	for r in range(Levels.H):
 		terrain.append([])
 		boxmap.append([])
@@ -134,37 +213,11 @@ func load_level(i: int) -> void:
 					world.add_child(pig)
 					pigs.append(pig)
 				"K":
-					kx = px
-					ky = py - (Character.STATS.king.h - TILE)
+					spawns.kx = px
+					spawns.ky = py - (Character.STATS.king.h - TILE)
 				"F":
-					f_x = px
-					f_y = py - (Character.STATS.frog.h - TILE)
-
-	king = Character.new()
-	king.kind = "king"
-	king.spawn_x = kx
-	king.spawn_y = ky
-	world.add_child(king)
-	frog = Character.new()
-	frog.kind = "frog"
-	frog.spawn_x = f_x
-	frog.spawn_y = f_y
-	world.add_child(frog)
-
-	active_kind = "king"
-	king.set_active(true)
-	frog.set_active(false)
-
-	total_diamonds = diamond_list.size()
-	diamonds_collected = 0
-	fruit = 0
-	hearts = hearts
-	swap_cooldown = 0.0
-	freeze = 0.0
-
-	_sync_hud()
-	_update_swap_portrait()
-	_redraw_background()
+					spawns.fx = px
+					spawns.fy = py - (Character.STATS.frog.h - TILE)
 
 # ---- world piece builders ----
 func _make_tile(px: int, py: int, r: int, c: int, grid: Array) -> void:
@@ -398,7 +451,10 @@ func _update(dt: float) -> void:
 		var open := diamonds_collected >= total_diamonds
 		if open and not door.opened:
 			door.opened = true
-			door.node.play("opening")
+			if door.node.has_method("open"):
+				door.node.open()
+			elif door.node.has_method("play"):
+				door.node.play("opening")
 		if open:
 			var d_rect := Rect2(door.x + 4, door.y - 28, TILE - 8, TILE * 2 - 8)
 			if d_rect.intersects(a.rect()):

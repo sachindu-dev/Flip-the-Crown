@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Pickup.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/Kings and Pigs/Sprites/12-Live and Coins/Small Diamond (18x14).png" id="2"]
+
+[sub_resource type="AtlasTexture" id="at"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 18, 14)
+
+[node name="Diamond" type="Node2D" groups=["diamond"]]
+script = ExtResource("1")
+kind = "diamond"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+scale = Vector2(1.6, 1.6)
+texture = SubResource("at")

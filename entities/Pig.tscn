@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Pig.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/Kings and Pigs/Sprites/03-Pig/Run (34x28).png" id="2"]
+
+[sub_resource type="AtlasTexture" id="at"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 34, 28)
+
+[node name="Pig" type="Node2D" groups=["pig"]]
+script = ExtResource("1")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(14, 17)
+texture = SubResource("at")

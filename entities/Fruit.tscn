@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/Pickup.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/adventure/Items/Fruits/Apple.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="at"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Fruit" type="Node2D" groups=["fruit"]]
+script = ExtResource("1")
+kind = "fruit"
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 16)
+texture = SubResource("at")
