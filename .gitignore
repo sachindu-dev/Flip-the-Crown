@@ -2,5 +2,8 @@
 .godot/
 /android/
 
+# Export output
+/build/
+
 # macOS
 .DS_Store
