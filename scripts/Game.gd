@@ -308,21 +308,19 @@ func resume() -> void:
 
 # ----------------------------------------------------------------- swap
 func do_swap() -> void:
-	var a := active_char()
-	var o := inactive_char()
-	o.x = a.x + (a.stats().w - o.stats().w) / 2.0
-	o.y = (a.y + a.stats().h) - o.stats().h
-	o.vx = 0.0
-	o.vy = 0.0
-	o.coyote = 0.085
-	o.jumps_left = int(o.stats().jumps)
+	# Control-only swap: neither character moves; control just toggles between
+	# them (each keeps its own position). The per-frame loop routes input to
+	# whichever is active, so flipping active_kind is all that's needed.
+	var leaving := active_char()
 	active_kind = "frog" if active_kind == "king" else "king"
+	var taking := active_char()
 	swap_cooldown = 0.2
 	freeze = 0.05
-	spawn_dust(a.cx(), a.cy(), 12, Color.WHITE)
-	spawn_dust(a.cx(), a.y + a.stats().h, 6, Color("#efe7d6"))
-	active_char().set_active(true)
-	inactive_char().set_active(false)
+	# a little juice at both characters so the control hand-off reads clearly
+	spawn_dust(leaving.cx(), leaving.y + leaving.stats().h, 6, Color("#efe7d6"))
+	spawn_dust(taking.cx(), taking.cy(), 12, Color.WHITE)
+	leaving.set_active(false)
+	taking.set_active(true)
 	ui.flash()
 	ui.kick_swap_chip()
 	_update_swap_portrait()

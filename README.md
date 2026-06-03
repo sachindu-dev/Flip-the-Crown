@@ -20,7 +20,7 @@ A tight, snappy single-screen **2D puzzle-platformer** built in **Godot 4**. Ins
 
 - **The King** — slow, single jump. His hammer destroys wooden boxes and defeats Pigs.
 - **The Ninja Frog** — fast, double-jump and wall-slide/wall-jump. Can't attack and dies in one hit.
-- **Swap** instantly teleports the inactive character to the active one's feet, with a dust burst, freeze-frame and screen flash. The bottom-left HUD chip always shows who you can swap *to*.
+- **Swap** instantly toggles which character you control — each one keeps its own position, so you move the King and the Frog independently and switch between them on the fly (with a dust burst, freeze-frame and screen flash). The bottom-left HUD chip always shows who you can swap *to*, and the inactive character is marked on-screen.
 - **Diamonds** are mandatory keys — collect them all to unlock the exit door. **Fruit** is bonus score.
 - **Pigs** patrol their platforms; **spikes** and **spinning saws** are lethal to both characters.
 - **3 hearts.** Taking damage respawns both characters at the start of the level (with brief invulnerability). Lose all three and it's game over.
