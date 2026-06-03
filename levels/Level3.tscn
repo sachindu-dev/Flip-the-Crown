@@ -13,80 +13,80 @@
 [ext_resource type="PackedScene" path="res://entities/Door.tscn" id="11_5nt5t"]
 [ext_resource type="Script" path="res://scripts/DoorEnt.gd" id="12_4axbk"]
 
-[node name="Level3" type="Node2D" unique_id=1084001011]
+[node name="Level3" type="Node2D" unique_id=1331067746]
 
-[node name="Terrain" type="TileMapLayer" parent="." unique_id=221082512]
+[node name="Terrain" type="TileMapLayer" parent="." unique_id=227499991]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAARAAsAAAABAAAAAAASAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAZAAsAAAABAAAAAAAaAAsAAAABAAAAAAAbAAsAAAABAAAAAAAcAAsAAAABAAAAAAAdAAsAAAABAAAAAAAAAA4AAAABAAAAAAABAA4AAAABAAAAAAACAA4AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAHAA4AAAABAAAAAAAIAA4AAAABAAAAAAAJAA4AAAABAAAAAAAKAA4AAAABAAAAAAALAA4AAAABAAAAAAAMAA4AAAABAAAAAAANAA4AAAABAAAAAAAOAA4AAAABAAAAAAAPAA4AAAABAAAAAAAQAA4AAAABAAAAAAARAA4AAAABAAAAAAASAA4AAAABAAAAAAATAA4AAAABAAAAAAAUAA4AAAABAAAAAAAVAA4AAAABAAAAAAAWAA4AAAABAAAAAAAXAA4AAAABAAAAAAAYAA4AAAABAAAAAAAZAA4AAAABAAAAAAAaAA4AAAABAAAAAAAbAA4AAAABAAAAAAAcAA4AAAABAAAAAAAdAA4AAAABAAAAAAAAAA8AAAABAAEAAAABAA8AAAABAAEAAAACAA8AAAABAAEAAAADAA8AAAABAAEAAAAEAA8AAAABAAEAAAAFAA8AAAABAAEAAAAGAA8AAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAALAA8AAAABAAEAAAAMAA8AAAABAAEAAAANAA8AAAABAAEAAAAOAA8AAAABAAEAAAAPAA8AAAABAAEAAAAQAA8AAAABAAEAAAARAA8AAAABAAEAAAASAA8AAAABAAEAAAATAA8AAAABAAEAAAAUAA8AAAABAAEAAAAVAA8AAAABAAEAAAAWAA8AAAABAAEAAAAXAA8AAAABAAEAAAAYAA8AAAABAAEAAAAZAA8AAAABAAEAAAAaAA8AAAABAAEAAAAbAA8AAAABAAEAAAAcAA8AAAABAAEAAAAdAA8AAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAARAAsAAAABAAAAAAASAAsAAAABAAAAAAAWAAsAAAABAAAAAAAXAAsAAAABAAAAAAAYAAsAAAABAAAAAAAZAAsAAAABAAAAAAAbAAsAAAABAAAAAAAcAAsAAAABAAAAAAAdAAsAAAABAAAAAAAAAA4AAAABAAAAAAABAA4AAAABAAAAAAACAA4AAAABAAAAAAADAA4AAAABAAAAAAAEAA4AAAABAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAHAA4AAAABAAAAAAAIAA4AAAABAAAAAAAJAA4AAAABAAAAAAAKAA4AAAABAAAAAAALAA4AAAABAAAAAAAMAA4AAAABAAAAAAANAA4AAAABAAAAAAAOAA4AAAABAAAAAAAPAA4AAAABAAAAAAAQAA4AAAABAAAAAAARAA4AAAABAAAAAAASAA4AAAABAAAAAAATAA4AAAABAAAAAAAUAA4AAAABAAAAAAAVAA4AAAABAAAAAAAWAA4AAAABAAAAAAAXAA4AAAABAAAAAAAYAA4AAAABAAAAAAAZAA4AAAABAAAAAAAaAA4AAAABAAAAAAAbAA4AAAABAAAAAAAcAA4AAAABAAAAAAAdAA4AAAABAAAAAAAAAA8AAAABAAEAAAABAA8AAAABAAEAAAACAA8AAAABAAEAAAADAA8AAAABAAEAAAAEAA8AAAABAAEAAAAFAA8AAAABAAEAAAAGAA8AAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAALAA8AAAABAAEAAAAMAA8AAAABAAEAAAANAA8AAAABAAEAAAAOAA8AAAABAAEAAAAPAA8AAAABAAEAAAAQAA8AAAABAAEAAAARAA8AAAABAAEAAAASAA8AAAABAAEAAAATAA8AAAABAAEAAAAUAA8AAAABAAEAAAAVAA8AAAABAAEAAAAWAA8AAAABAAEAAAAXAA8AAAABAAEAAAAYAA8AAAABAAEAAAAZAA8AAAABAAEAAAAaAA8AAAABAAEAAAAbAA8AAAABAAEAAAAcAA8AAAABAAEAAAAdAA8AAAABAAEAAAA=")
 tile_set = ExtResource("1_uog4x")
 
-[node name="Fruit" type="Node2D" parent="." unique_id=2078648897 groups=["fruit"] instance=ExtResource("2_fqqs4")]
+[node name="Fruit" type="Node2D" parent="." unique_id=887812 groups=["fruit"] instance=ExtResource("2_fqqs4")]
 position = Vector2(288, 256)
 script = ExtResource("3_52gcn")
 
-[node name="@Node2D@10" type="Node2D" parent="." unique_id=1418397829 groups=["fruit"] instance=ExtResource("2_fqqs4")]
+[node name="@Node2D@10" type="Node2D" parent="." unique_id=144826645 groups=["fruit"] instance=ExtResource("2_fqqs4")]
 position = Vector2(704, 256)
 script = ExtResource("3_52gcn")
 
-[node name="Diamond" type="Node2D" parent="." unique_id=497946291 groups=["diamond"] instance=ExtResource("4_ws61b")]
+[node name="Diamond" type="Node2D" parent="." unique_id=935779728 groups=["diamond"] instance=ExtResource("4_ws61b")]
 position = Vector2(160, 288)
 script = ExtResource("3_52gcn")
 kind = "diamond"
 
-[node name="@Node2D@11" type="Node2D" parent="." unique_id=413088288 groups=["diamond"] instance=ExtResource("4_ws61b")]
+[node name="@Node2D@11" type="Node2D" parent="." unique_id=1229721693 groups=["diamond"] instance=ExtResource("4_ws61b")]
 position = Vector2(416, 288)
 script = ExtResource("3_52gcn")
 kind = "diamond"
 
-[node name="@Node2D@12" type="Node2D" parent="." unique_id=27715142 groups=["diamond"] instance=ExtResource("4_ws61b")]
+[node name="@Node2D@12" type="Node2D" parent="." unique_id=1563196030 groups=["diamond"] instance=ExtResource("4_ws61b")]
 position = Vector2(576, 288)
 script = ExtResource("3_52gcn")
 kind = "diamond"
 
-[node name="Box" type="Node2D" parent="." unique_id=1538206461 groups=["box"] instance=ExtResource("5_m7lwk")]
+[node name="Box" type="Node2D" parent="." unique_id=2003244355 groups=["box"] instance=ExtResource("5_m7lwk")]
 position = Vector2(736, 384)
 
-[node name="KingSpawn" type="Marker2D" parent="." unique_id=1569025010]
+[node name="KingSpawn" type="Marker2D" parent="." unique_id=299569638]
 position = Vector2(32, 416)
 
-[node name="FrogSpawn" type="Marker2D" parent="." unique_id=403314816]
+[node name="FrogSpawn" type="Marker2D" parent="." unique_id=223862066]
 position = Vector2(96, 416)
 
-[node name="Spike" type="Node2D" parent="." unique_id=738798328 groups=["spike"] instance=ExtResource("6_gtknj")]
+[node name="Spike" type="Node2D" parent="." unique_id=552714539 groups=["spike"] instance=ExtResource("6_gtknj")]
 position = Vector2(192, 416)
 
-[node name="@Node2D@13" type="Node2D" parent="." unique_id=1837495745 groups=["spike"] instance=ExtResource("6_gtknj")]
+[node name="@Node2D@13" type="Node2D" parent="." unique_id=1952630490 groups=["spike"] instance=ExtResource("6_gtknj")]
 position = Vector2(224, 416)
 
-[node name="Saw" type="Node2D" parent="." unique_id=1025565632 groups=["saw"] instance=ExtResource("7_t3rlc")]
+[node name="Saw" type="Node2D" parent="." unique_id=53204111 groups=["saw"] instance=ExtResource("7_t3rlc")]
 position = Vector2(352, 416)
 script = ExtResource("8_77jv8")
 
-[node name="@Node2D@14" type="Node2D" parent="." unique_id=496559345 groups=["spike"] instance=ExtResource("6_gtknj")]
+[node name="@Node2D@14" type="Node2D" parent="." unique_id=1376459771 groups=["spike"] instance=ExtResource("6_gtknj")]
 position = Vector2(448, 416)
 
-[node name="@Node2D@15" type="Node2D" parent="." unique_id=1859876320 groups=["spike"] instance=ExtResource("6_gtknj")]
+[node name="@Node2D@15" type="Node2D" parent="." unique_id=2018971405 groups=["spike"] instance=ExtResource("6_gtknj")]
 position = Vector2(480, 416)
 
-[node name="@Node2D@16" type="Node2D" parent="." unique_id=347628407 groups=["spike"] instance=ExtResource("6_gtknj")]
+[node name="@Node2D@16" type="Node2D" parent="." unique_id=246872087 groups=["spike"] instance=ExtResource("6_gtknj")]
 position = Vector2(512, 416)
 
-[node name="@Node2D@17" type="Node2D" parent="." unique_id=958984149 groups=["saw"] instance=ExtResource("7_t3rlc")]
+[node name="@Node2D@17" type="Node2D" parent="." unique_id=1338003581 groups=["saw"] instance=ExtResource("7_t3rlc")]
 position = Vector2(608, 416)
 script = ExtResource("8_77jv8")
 
-[node name="@Node2D@18" type="Node2D" parent="." unique_id=539280065 groups=["box"] instance=ExtResource("5_m7lwk")]
+[node name="@Node2D@18" type="Node2D" parent="." unique_id=1290989603 groups=["box"] instance=ExtResource("5_m7lwk")]
 position = Vector2(736, 416)
 
-[node name="Pig" type="Node2D" parent="." unique_id=660072433 groups=["pig"] instance=ExtResource("9_w4yws")]
+[node name="Pig" type="Node2D" parent="." unique_id=1743249933 groups=["pig"] instance=ExtResource("9_w4yws")]
 position = Vector2(802, 420)
 script = ExtResource("10_en7ln")
 
-[node name="@Node2D@19" type="Node2D" parent="." unique_id=210541799 groups=["diamond"] instance=ExtResource("4_ws61b")]
+[node name="@Node2D@19" type="Node2D" parent="." unique_id=1759752382 groups=["diamond"] instance=ExtResource("4_ws61b")]
 position = Vector2(832, 416)
 script = ExtResource("3_52gcn")
 kind = "diamond"
 
-[node name="Door" type="Node2D" parent="." unique_id=1679442735 groups=["door"] instance=ExtResource("11_5nt5t")]
+[node name="Door" type="Node2D" parent="." unique_id=257721580 groups=["door"] instance=ExtResource("11_5nt5t")]
 position = Vector2(896, 416)
 script = ExtResource("12_4axbk")
