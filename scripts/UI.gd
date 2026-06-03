@@ -349,7 +349,7 @@ func toast(text: String, ms: float) -> void:
 	toast_timer = ms / 1000.0 if ms > 0.0 else 0.0
 
 func door_unlocked() -> void:
-	toast("DOOR UNLOCKED - reach the exit", 2600)
+	toast("DOOR UNLOCKED - get BOTH to the exit", 2600)
 
 func _quit() -> void:
 	get_tree().quit()

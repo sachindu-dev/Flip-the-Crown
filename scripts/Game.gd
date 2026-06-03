@@ -464,8 +464,10 @@ func _update(dt: float) -> void:
 			elif door.node.has_method("play"):
 				door.node.play("opening")
 		if open:
+			# Both the King and the Frog must reach the exit. Bring one over,
+			# swap, and bring the other — the inactive one waits at the door.
 			var d_rect := Rect2(door.x + 4, door.y - 28, TILE - 8, TILE * 2 - 8)
-			if d_rect.intersects(a.rect()):
+			if d_rect.intersects(king.rect()) and d_rect.intersects(frog.rect()):
 				_level_clear()
 
 	# item bob
