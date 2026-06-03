@@ -26,10 +26,12 @@ const STATS := {
 	},
 }
 
-# sprite placement (center offset within the hitbox) per kind
+# Sprite placement: offset of the (centered) frame within the hitbox so the
+# character's measured feet sit on the hitbox bottom. oy = h - (feet_y - frame_h/2),
+# measured from the opaque bounding box of the idle frame.
 const SPRITE := {
-	"king": {"ox": 13, "oy": 19, "scale": 1.0},
-	"frog": {"ox": 12, "oy": 20, "scale": 1.0},
+	"king": {"ox": 13, "oy": 29, "scale": 1.0},
+	"frog": {"ox": 12, "oy": 18, "scale": 1.0},
 }
 
 var kind := "king"

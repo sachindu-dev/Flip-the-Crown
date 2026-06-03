@@ -26,7 +26,8 @@ var sprite: AnimatedSprite2D
 func _ready() -> void:
 	sprite = AnimatedSprite2D.new()
 	sprite.centered = true
-	sprite.position = Vector2(14, 16)
+	# feet (frame-y 25 of 28) aligned to hitbox bottom (H=28)
+	sprite.position = Vector2(14, 17)
 	sprite.sprite_frames = _build_frames()
 	add_child(sprite)
 	reset()
