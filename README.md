@@ -2,7 +2,7 @@
 
 A tight, snappy single-screen **2D puzzle-platformer** built in **Godot 4**. Instantly swap between two characters with complementary abilities to clear each level: collect the diamond keys, reach the exit, and don't die.
 
-> Swap on the fly — the **King** smashes through boxes and pigs, the **Ninja Frog** double-jumps and wall-jumps to places the King can't reach. Two crowns, one path.
+> Swap on the fly the **King** smashes through boxes and pigs, the **Ninja Frog** double-jumps and wall-jumps to places the King can't reach. Two crowns, one path.
 
 https://github.com/user-attachments/assets/546ee0a8-8b65-4a5a-a808-c43f09d79d3b
 
